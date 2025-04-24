@@ -31,6 +31,21 @@ body{
     font-size: 10vmin;
     color: #b0413e;
     background-color: rgb(189, 189, 140);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+.box:hover:not(:disabled){
+    background-color: #d4c68a;
+    transform: scale(1.1);
+}
+.box.winning-box {
+    background-color: gold;
+    color: darkred;
+    animation: pulse 1s infinite alternate;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
 }
 #reset{
     padding: 1rem;
@@ -54,11 +69,37 @@ body{
      color:darkgoldenrod;
      font-size: 5vmin;
      margin-bottom: 2vmin;
+     animation: fadeIn 1s ease forwards;
+     opacity: 0;
 }
 .msgContainer{
     height: 35vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+.msgContainer.show {
+    opacity: 1;
 }
 .hide{
     display: none;
+}
+.game-mode-selector {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #eee;
+}
+.turn-indicator {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #f0e68c;
+    font-weight: bold;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
     
